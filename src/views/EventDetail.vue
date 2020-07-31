@@ -2,7 +2,7 @@
   <div class="event-detail">
     <div class="container">
       <Loader v-if="loading" />
-      <div v-else class="event-detail__content">
+      <div v-else-if="!error" class="event-detail__content">
         <div class="event-detail__content__hero">
           <div class="left">
             <h1>{{ event.name }}</h1>
@@ -13,6 +13,9 @@
           </div>
         </div>
         <Sessions :sessions="sessions" />
+      </div>
+      <div v-else>
+        {{ error }}
       </div>
     </div>
   </div>
@@ -34,17 +37,21 @@ export default {
     return {
       event: {},
       sessions: [],
-      loading: true
+      loading: true,
+      error: null
     }
   },
   async mounted () {
     const id = this.$route.params.id
-    await getEventDetail(id).then(({ event, sessions }) => {
-      this.event = event
-      this.sessions = sessions
-    })
 
-    if (this.event) {
+    try {
+      await getEventDetail(id).then(({ event, sessions }) => {
+        this.event = event
+        this.sessions = sessions
+      })
+    } catch (error) {
+      this.error = error
+    } finally {
       this.loading = false
     }
   }
