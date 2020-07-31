@@ -3,8 +3,11 @@
     <div class="container">
       <h1>Explore Events</h1>
       <Loader v-if="loading" />
-      <div v-else class="events__list">
+      <div v-else-if="!error" class="events__list">
         <EventCard v-for="event in sortedEvents" :key="event.id" :event="event" />
+      </div>
+      <div v-else>
+        {{ error }}
       </div>
     </div>
   </div>
@@ -26,13 +29,16 @@ export default {
   data () {
     return {
       events: [],
-      loading: true
+      loading: true,
+      error: null
     }
   },
   async mounted () {
-    this.events = await getEvents()
-
-    if (this.events.length) {
+    try {
+      this.events = await getEvents()
+    } catch (error) {
+      this.error = error
+    } finally {
       this.loading = false
     }
   },
