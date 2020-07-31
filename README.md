@@ -19,7 +19,7 @@ yarn build
 ```
 yarn lint
 ```
-## env files
+### env files
 ```
 You can always check `.env.example` file to see which env variables you need.
 - Create `.env.local` file to setup env variables for development server.
