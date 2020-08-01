@@ -16,3 +16,26 @@ a {
   padding-top: 15px;
   padding-bottom: 15px;
 }
+
+.flex-row {
+  display: flex;
+  flex-wrap: wrap;
+  flex: 1;
+  margin-left: -10px;
+  margin-right: -10px;
+
+  @media (max-width: 767px) {
+    flex-direction: column;
+  }
+
+  &__column {
+    flex: 0 0 33.333%;
+    max-width: 33.333%;
+    padding: 10px;
+
+    @media (max-width: 767px) {
+      flex: 1;
+      max-width: 100%;
+    }
+  }
+}

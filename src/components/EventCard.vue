@@ -16,19 +16,11 @@ export default {
 <style lang="scss" scoped>
 .events__list__card {
   display: block;
-  flex-grow: 1;
-  width: calc(33.333% - 20px);
-  margin-top: 20px;
-  margin-left: 20px;
+  height: 100%;
   padding: 10px;
   background-color: #f4f7fa;
   border: 1px solid $color-border;
   border-radius: 4px;
-
-  @media (max-width: 767px) {
-    width: 100%;
-    margin-left: 0;
-  }
 
   &__date {
     font-weight: 600;
