@@ -4,7 +4,11 @@
       <h1>Explore Events</h1>
       <Loader v-if="loading" />
       <div v-else-if="!error" class="events__list">
-        <EventCard v-for="event in sortedEvents" :key="event.id" :event="event" />
+        <div class="flex-row">
+          <div v-for="event in sortedEvents" :key="event.id" class="flex-row__column">
+            <EventCard :event="event" />
+          </div>
+        </div>
       </div>
       <div v-else>
         {{ error }}
@@ -53,18 +57,11 @@ export default {
 <style lang="scss" scoped>
 .events {
   &__list {
-    display: flex;
-    flex-wrap: wrap;
+    margin-top: 10px;
+  }
 
-    @media (max-width: 767px) {
-      flex-direction: column;
-    }
-
-    &__card {
-      &:nth-child(3n+1) {
-        margin-left: 0;
-      }
-    }
+  h1 {
+    line-height: 1em;
   }
 }
 </style>
