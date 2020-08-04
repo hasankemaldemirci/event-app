@@ -81,7 +81,6 @@ export default {
   }
 
   .right {
-    flex: 0 0 87px;
     padding-left: 15px;
   }
 }
