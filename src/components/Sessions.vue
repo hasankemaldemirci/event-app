@@ -30,8 +30,8 @@ export default {
   computed: {
     sortedSessions () {
       const sessions = this.sessions.slice(0).sort((a, b) => {
-        const firstDate = new Date(a.dateRange)
-        const secondDate = new Date(b.dateRange)
+        const firstDate = Math.abs(new Date() - new Date(a.startDate))
+        const secondDate = Math.abs(new Date() - new Date(b.startDate))
         return firstDate - secondDate
       })
 
