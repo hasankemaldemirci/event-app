@@ -4,6 +4,7 @@ class Session {
   constructor (data) {
     this.id = data.id
     this.name = data.name
+    this.startDate = data.starts
     this.dateRange = this.formatDate(data.starts, data.ends)
     this.duration = this.calculateDuration(data.starts, data.ends)
     this.capacity = data.capacity
