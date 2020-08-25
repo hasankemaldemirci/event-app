@@ -8,7 +8,7 @@ const apiURL = process.env.VUE_APP_API_URL
 const token = process.env.VUE_APP_TOKEN
 const headers = { Authorization: `Token ${token}` }
 
-const getEvents = async () => {
+export async function getEvents () {
   const response = await axios({
     url: `${proxy}/${apiURL}/events`,
     headers
@@ -20,7 +20,7 @@ const getEvents = async () => {
   return events
 }
 
-const getEventDetail = async (id) => {
+export async function getEventDetail (id) {
   const responseEventDetail = await axios({
     url: `${proxy}/${apiURL}/events/${id}`,
     headers
@@ -43,5 +43,3 @@ const getEventDetail = async (id) => {
 
   return responseAll
 }
-
-export { getEvents, getEventDetail }
