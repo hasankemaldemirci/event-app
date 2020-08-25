@@ -1,5 +1,5 @@
 <template>
-  <router-link :to="`/${event.id}`" class="events__list__card">
+  <router-link :to="`/events/${event.id}`" class="events__list__card">
     <div class="events__list__card__date">{{ event.dateRange }}</div>
     <div class="events__list__card__title">{{ event.name }}</div>
   </router-link>
