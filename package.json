@@ -11,7 +11,7 @@
     "axios": "^0.21.1",
     "core-js": "^3.13.1",
     "date-fns": "^2.22.1",
-    "vue": "^2.6.12",
+    "vue": "^2.6.13",
     "vue-router": "^3.5.1"
   },
   "devDependencies": {
@@ -29,6 +29,6 @@
     "eslint-plugin-vue": "^7.10.0",
     "node-sass": "^6.0.0",
     "sass-loader": "^10.1.1",
-    "vue-template-compiler": "^2.6.12"
+    "vue-template-compiler": "^2.6.13"
   }
 }
